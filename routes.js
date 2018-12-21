@@ -47,7 +47,7 @@ routes.delete(
 )
 
 // todos as rotas abaixo desta linha deverao estar autenticadas
-routes.use(authMiddeware)
+// routes.use(authMiddeware)
 
 /**
  * Test to login

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css"
+    />
+    <link rel="stylesheet" href="/app.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <title>Shared Ideia</title>
+  </head>
+  <body>
+    <div
+      class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
+      <header
+        class="demo-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Shared Ideia</span>
+        </div>
+      </header>
+      <div class="demo-ribbon"></div>
+      <main class="demo-main mdl-layout__content">
+        <div class="demo-container mdl-grid">
+          <div
+            class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+          <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+            <h4>Post!</h4>
+            <div class="timeline-wrapper">
+                <form>
+                  <div id="p2" style="display: none" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+                  <textarea name="description" id="description" ></textarea>
+                   <button id="send" name="send" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+                    <i class="material-icons">add</i>
+                  </button>
+                </form>
+            </div>
+            <ul class="ul demo-list-item mdl-list"></ul>
+          </div>
+        </div>
+        <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
+        <div class="mdl-snackbar__text"></div>
+        <button class="mdl-snackbar__action" type="button"></button>
+      </div>
+
+
+        <!-- <footer class="demo-footer mdl-mini-footer">
+          <div class="mdl-mini-footer--left-section">
+             <ul class="mdl-mini-footer--link-list">
+              
+            </ul> 
+          </div>
+        </footer> -->
+      </main>
+    </div>
+
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="models/Post.js"></script>
+    <script src="services/Api.js"></script>
+    <script src="controllers/PostController.js"></script>
+    <script src="views/PostView.js"></script>
+    <script src="services/PostServices.js"></script>
+    <script>
+      let postController = new PostController()
+    </script>
+  </body>
+</html>
