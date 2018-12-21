@@ -6,9 +6,9 @@ const authServices = require('./src/app/middlewares/authServices')
 const validate = require('express-validation')
 const validators = require('./src/app/validators')
 
-routes.get('/', (req, res) => {
-  return res.jons({ route: 'ok' })
-})
+// routes.get('/', (req, res) => {
+//  return res.jons({ route: 'ok' })
+// })
 
 /**
  * User Controller
