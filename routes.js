@@ -39,12 +39,7 @@ routes.put(
   authMiddeware,
   controllers.PostController.update
 )
-routes.delete(
-  '/post/:id',
-  validate(validators.Post),
-  authMiddeware,
-  controllers.PostController.destroy
-)
+routes.delete('/remove', authMiddeware, controllers.PostController.destroy)
 
 routes.post('/like/:id', controllers.PostController.like)
 

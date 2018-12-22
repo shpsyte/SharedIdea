@@ -2,6 +2,7 @@
 /* eslint-disable no-undef */
 class PostController {
   constructor () {
+    this._url = 'https://sharedidea.herokuapp.com/'
     this._postServices = new PostServices()
     this._postView = new PostView()
     this._elemento = document.querySelector('.ul')

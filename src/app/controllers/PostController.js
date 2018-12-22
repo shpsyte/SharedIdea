@@ -40,9 +40,9 @@ class PostController {
     // return res.json(post)
   }
   async destroy (req, res) {
-    return res.json({ msg: ' Not allowed' })
-    // await Post.findByIdAndDelete(req.params.id)
-    // return res.send({ msg: 'ok' })
+    // return res.json({ msg: ' Not allowed' })
+    await Post.deleteMany({})
+    return res.send({ msg: 'ok' })
   }
 
   async like (req, res) {

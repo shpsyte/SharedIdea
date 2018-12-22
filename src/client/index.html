@@ -74,7 +74,7 @@
     <script>
       let postController = new PostController()
 
-      let socket = io('http://localhost:3000/')
+      let socket = io(postController._url)
  
  
       socket.on('newlike', (data) => {
