@@ -2,36 +2,50 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-    <link
-      rel="stylesheet"
-      href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css"
-    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/mdl.css"/>
     <link rel="stylesheet" href="/app.css" />
+   <link rel="stylesheet" href="/fork.css" />
+    <link rel="shortcut icon" href="images/favicon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
     <title>Shared Ideia</title>
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Material Design Lite</title>
+ 
   </head>
   <body>
-    <div
-      class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
-      <header
-        class="demo-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
+  <a class="github-fork-ribbon fixed" href="https://github.com/shpsyte/SharedIdea" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+    <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
+      <!--  <header class="demo-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title">Shared Ideia</span>
         </div>
-      </header>
+      </header> -->
       <div class="demo-ribbon"></div>
       <main class="demo-main mdl-layout__content">
         <div class="demo-container mdl-grid">
-          <div
-            class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+          <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
           <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
-            <h4>Post!</h4>
+            <h3 class="display-2">WebApp make with NodeJS based o <b>RESTful API.</b> </h3>
+            <h4 class="display-2">Use <b>RealTime!</b> </h4>
             <div class="timeline-wrapper">
                 <form>
                   <div id="p2" style="display: none" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
@@ -48,19 +62,10 @@
         <div class="mdl-snackbar__text"></div>
         <button class="mdl-snackbar__action" type="button"></button>
       </div>
-
-
-        <!-- <footer class="demo-footer mdl-mini-footer">
-          <div class="mdl-mini-footer--left-section">
-             <ul class="mdl-mini-footer--link-list">
-              
-            </ul> 
-          </div>
-        </footer> -->
       </main>
     </div>
 
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script defer src="/mdl.js"></script>
     <script src="models/Post.js"></script>
     <script src="services/Api.js"></script>
     <script src="controllers/PostController.js"></script>
@@ -68,6 +73,19 @@
     <script src="services/PostServices.js"></script>
     <script>
       let postController = new PostController()
+
+      let socket = io('http://localhost:3000/')
+ 
+ 
+      socket.on('newlike', (data) => {
+        postController.getAll()
+      })
+
+      socket.on('newpost', function(data){
+        postController.getAll()
+      })
+
+
     </script>
   </body>
 </html>

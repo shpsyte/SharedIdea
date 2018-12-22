@@ -11,6 +11,7 @@ const cors = require('cors')
 
 class App {
   constructor () {
+    this.server = null
     this.express = express()
     this.isDev = process.env.NODE_ENV !== 'production'
     this.setExpress()
@@ -36,6 +37,16 @@ class App {
     this.express.use(
       express.static(path.resolve(__dirname, 'src', 'client', 'public'))
     )
+
+    const serverIo = require('http').Server(this.express)
+    const io = require('socket.io')(serverIo)
+
+    this.express.use((req, res, next) => {
+      req.io = io
+      return next()
+    })
+
+    this.server = serverIo
   }
   database () {
     mongoose.connect(
@@ -71,4 +82,4 @@ class App {
   }
 }
 
-module.exports = new App().express
+module.exports = new App().server

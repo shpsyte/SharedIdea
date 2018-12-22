@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 class PostController {
   constructor () {
     this._postServices = new PostServices()
@@ -26,6 +28,12 @@ class PostController {
       .getAll()
       .then(posts => this.loadAll(posts))
       .catch(erro => (this._mensagem.texto = erro))
+  }
+
+  handleLike (e) {
+    this._postServices
+      .like(e.dataset.id)
+      .then(post => (e.dataset.badge = post.like))
   }
 
   async loadAll (posts) {

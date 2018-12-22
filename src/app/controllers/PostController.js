@@ -27,6 +27,7 @@ class PostController {
     const id = req.userId
 
     const post = await Post.create({ ...req.body, author: id || null })
+    req.io.emit('newpost', post)
     return res.json(post)
   }
 
@@ -43,6 +44,18 @@ class PostController {
     // await Post.findByIdAndDelete(req.params.id)
     // return res.send({ msg: 'ok' })
   }
+
+  async like (req, res) {
+    const post = await Post.findById(req.params.id)
+    post.set({
+      like: post.like + 1
+    })
+    await post.save()
+    req.io.emit('newlike', post)
+    return res.json(post)
+  }
+  //   new: true
+  // })
 }
 
 module.exports = new PostController()

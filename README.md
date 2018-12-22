@@ -3,12 +3,12 @@
 This is a OpenSource project to learn NodeJS, MongoDB and All ecosystem arround this tech...
 This project is host on heroku.
 
-![Heroku](https://heroku-badge.herokuapp.com/?app=vhsuccesscase)
+![Heroku](https://heroku-badge.herokuapp.com/?app=sharedidea)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Check here
 
-<a href="https://vhsuccesscase.herokuapp.com/" target="_blank">APP - VH Success Case project</a>
+<a href="https://sharedidea.herokuapp.com/" target="_blank">WebAPP - Shared Idea</a>
 
 # Getting Started
 
@@ -23,8 +23,8 @@ To install Yarn, it is best to [consult the official documentation](https://yarn
 ## Installing:
 
 ```sh
-git clone https://github.com/shpsyte/vhsuccescase
-cd vhsuccessdcase
+git clone https://github.com/shpsyte/SharedIdea
+cd SharedIdea
 yarn cache clean
 yarn
 yarn dev
@@ -32,23 +32,23 @@ yarn dev
 
 > yarn dev using nodemon to rebuild on change js files.. :)
 
-## Configue Database (Optional)
+## Configue Database
 
-This project using Sequelize to create tables, so, to create a new DB, just alter the file dtabase.js with
-your credential, and run this comand:
+Create a .ENV file with:
 
-```sh
-npx sequelize db:migrate
+```cmd
+NODE_ENV=development,
+APP_SECRET=ApS@2018_201808$,
+TTL=186400,
+DATABASE_HOST= _mongoconnect_
 ```
 
 ## Built With
 
 - [x] [nodejs](https://nodejs.org/en/) - NodeJS
-- [x] [nunjucks](https://mozilla.github.io/nunjucks/) - A rich and powerful templating language for JavaScript.
-- [x] [sequelizejs](http://docs.sequelizejs.com/) - Sequelize is a promise-based ORM for Node.js v4 and up
 - [x] [expressjs](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for NodeJS
-- [x] [postgree](https://www.postgresql.org/) - The World's Most Advanced Open Source Relational Database
-- [x] [Google Chart](https://developers.google.com/chart/) - Display live data on your site
+- [x] [mongoDb](https://www.mongodb.com/) - MongoDB Atlas Deploy a fully managed cloud database in minutes
+- [x] [ES6 - VanilaJS](http://es6-features.org/) - Pure Javascript
 
 # How contribuite
 

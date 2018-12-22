@@ -46,6 +46,8 @@ routes.delete(
   controllers.PostController.destroy
 )
 
+routes.post('/like/:id', controllers.PostController.like)
+
 // todos as rotas abaixo desta linha deverao estar autenticadas
 // routes.use(authMiddeware)
 

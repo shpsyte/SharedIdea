@@ -1,5 +1,7 @@
+// eslint-disable-next-line no-unused-vars
 class PostServices {
   constructor () {
+    // eslint-disable-next-line no-undef
     this._api = new Api()
     this.url = '/post'
   }
@@ -12,5 +14,9 @@ class PostServices {
     return this._api
       .post(this.url, { description: description })
       .then(res => res)
+  }
+
+  async like (id) {
+    return this._api.post(`/like/${id}`).then(res => res)
   }
 }
